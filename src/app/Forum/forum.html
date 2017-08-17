@@ -1,0 +1,16 @@
+
+<div class='forum-container'>
+    <div class='forumNavContainer'>
+        <ul class="nav nav-pills nav-stacked">
+  <li role="presentation"><a  style="background-color: #fff" routerLink="viewDiscussion" routerLinkActive="active" >All Discussions</a></li>
+  <li role="presentation"><a  style="background-color: #fff" href="#" >Your Discussions</a></li>
+  <li role="presentation" ><a style="background-color: #fff" href="#" >Your Posts</a></li>
+  <li role="presentation" ><a style="background-color: #fff" href="#" >Your Bookmarks</a></li>
+  
+  <li role="presentation" ><a style="background-color: #fff" routerLink="createDiscussion" routerLinkActive="active">Start a Discussion</a></li>
+</ul>
+    </div>
+    <div class='forumDetailsContainer'>
+        <router-outlet></router-outlet>
+    </div>
+</div>

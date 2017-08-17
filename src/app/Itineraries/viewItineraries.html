@@ -1,0 +1,118 @@
+
+    <div class="viewIti-container">
+    <div class="itiList-container">
+        <div class="iti-row ">
+            <div class="table-responsive">
+                
+            <table class="table table-striped itiTable" >
+                <thead>
+                    <th class="itiHeader">
+                        Itinerary Name
+                    </th>
+                    <th class="itiHeader">
+                       Date Created 
+                    </th>
+                    <th class="itiHeader">
+                        Date Modified 
+                    </th>
+                    <th class="itiHeader">
+                    </th>
+                    <th class="itiHeader">
+                        </th>
+                </thead>
+                <tbody *ngFor="let i of itineraries" >
+                <tr>
+                    <td class="itiData">
+                        {{i.itineraryName}}
+                    </td>
+                    <td class="itiData">
+                       Date Created
+                    </td>
+                    <td class="itiData">
+                        Date Modified
+                    </td>
+                    <td class="itiData">
+                        <button  class="btn btn-primary" (click)="handleClickDetails(i)">view</button>
+                       <!--<a routerLink="" routerLinkActive="active"> view Details</a>-->
+                    </td>
+                    <td class="itiData">
+                        <button  class="btn btn-primary" (click)="handleClickModify(i)">Modify</button>
+                      
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="displayDetails" class="itidetails-container">
+        <div>
+        <label>Name</label>{{selectedItinerary.itineraryName}}
+    </div>
+    <div>
+        <label>Departure Airport</label>{{selectedItinerary.departureAirport}}
+    </div>
+    <div>
+        <label>Departure Date</label>{{formattedDate}}
+    </div>
+    <div>
+        <label>Language</label>{{selectedItinerary.language}}
+    </div>
+    <div>
+         <label>Number of People</label>{{selectedItinerary.numberPeople}}
+    </div>
+        <!--<router-outlet></router-outlet>-->
+    </div>
+    <div *ngIf="modify" class="itiModify-container">
+        <form #createItineraryForm="ngForm" (ngSubmit)="onSubmit(createItineraryForm.value)">
+            <div class="form-group">
+            
+            <font color="red" size="4px">*</font><label>ItineraryName</label>
+            <input type="text" class="form-control" name="itiName" required [ngModel]="selectedItinerary.itineraryName"/>
+
+            </div>
+            <div class="form-group">
+    
+            <font color="red" size="4px">*</font><label>Departure Date</label>
+                <p-calendar [(ngModel)]="formattedDate" tabindex="0" name ="departureDate" required>{{formattedDate}}</p-calendar> 
+            </div>
+            <div  class="form-group">
+   
+
+           <font color="red" size="4px">*</font> <label>Departure Airport</label>    
+              <input id="departureAirport" autocomplete="off" class="form-control" type="text" name="departureAirport" required [(ngModel)]="selectedItinerary.departureAirport" (keyup)=filterAirports($event)>
+              
+            
+            <div class="suggestions" *ngIf="filteredAirports.length > 0" >
+                <ul *ngFor="let item of filteredAirports" >
+                    <li >
+                        <a (click)="selectAirport(item)">{{item}}</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="form-group">
+              <font color="red" size="4px">*</font><label>Language</label>  
+              <input id="userLanguage" autocomplete="off" class="form-control" type="text" name="userLanguage" required [(ngModel)]="selectedItinerary.language" (keyup)=filterLanguages($event)>
+              
+            
+            <div class="suggestions" *ngIf="filteredLanguages.length > 0">
+                <ul *ngFor="let item of filteredLanguages" >
+                    <li >
+                        <a (click)="selectLanguage(item)">{{item}}</a>
+                    </li>
+                </ul>
+            </div>
+    </div>
+        <div class="form-group">
+            <font color="red" size="4px">*</font><label>Number of People Travelling</label>
+            <select [(ngModel)]="selectedItinerary.numberPeople" required name="selectedNumber">
+            <option *ngFor="let number of numbers" [value]="number">{{number}}</option>
+            
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary" style="opacity:1.0" [disabled]="!createItineraryForm.valid">Modify Itinerary</button>
+        </form>
+    </div>
+    </div>

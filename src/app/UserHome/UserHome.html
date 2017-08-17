@@ -1,0 +1,46 @@
+
+<div class="navbar-container">
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+      
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Travellers Companion</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="#">Home</a></li>
+      <li><a href="#">Companion Search</a></li>
+      <li class="dropdown"><a  class="dropdown-toggle" data-toggle="dropdown">Itineraries<span class="caret"></span></a>
+      <ul class="dropdown-menu">
+          <li><a routerLink="viewItineraries" routerLinkActive="active">Your Itineraries</a></li>
+          <li><a routerLink="createItinerary" routerLinkActive="active">Create an Itinerary</a></li>
+      </ul>
+      </li>
+      <li><a routerLink="forum" routerLinkActive="active">Forum</a></li>
+      <li class="dropdown"><a  class="dropdown-toggle" data-toggle="dropdown">Profile<span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="#">View Profile</a></li>
+          <li><a href="#">Edit Profile</a></li>
+      </ul>
+      </li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      
+      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span> Welcome {{userName}}<span class="caret"></span></a>
+      <ul class="dropdown-menu">
+          <li><a href="#">Preferences</a></li>
+          <li><a href="#">LogOut</a></li>
+      </ul>
+      </li>
+    </ul>
+  </div>
+</nav>
+</div>
+<div class="routerOutlet-container">
+<router-outlet></router-outlet>
+</div>
+
+   
+
+
+
+

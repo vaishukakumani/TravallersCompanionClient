@@ -1,0 +1,39 @@
+<div class="viewDiscContainer"><div class="table-responsive">
+                
+            <table class="table table-bordered" >
+                <thead class="discHead">
+                    <th>
+                       Discussion
+                    </th>
+                    <th>
+                       Date Created 
+                    </th>
+                    <th>
+                        Last Post By
+                    </th>
+                    <th>
+                        Total Posts
+                    </th>
+                    
+                </thead>
+                <tbody *ngFor="let i of discussions" style="font-size:12px">
+                <tr>
+                    <td style="background-color:#fff">
+                       <a style="font-weight:bold;font-size:14px"> {{i.subjectLine}}</a><br/>
+                       <p >{{i.subjectText}}</p>
+                    </td>
+                    <td >
+                        {{i.createdDate|date:'short'}}<br/>by <a>{{i.user.userName}}</a> 
+                    </td>
+                    <td style="background-color:#fff">
+                      by <a>{{i.lastPostedBy}}</a><br/>at {{i.lastPostedDate|date:'short'}}
+                    </td>
+                    <td>
+                        {{i.totalPosts}}
+                    </td>
+                   
+                </tr>
+                
+                </tbody>
+            </table>
+        <div>

@@ -1,0 +1,60 @@
+
+<div class="createIti-container">
+<form #createItineraryForm="ngForm" (ngSubmit)="onSubmit(createItineraryForm.value,createItineraryForm)">
+<div class="form-group">
+ 
+<font color="red" size="4px">*</font><label>ItineraryName</label>
+<input type="text" class="form-control" name="itiName" required ngModel/>
+
+</div><br/>
+
+<div class="form-group">
+    
+    <font color="red" size="4px">*</font><label>Departure Date</label>
+        <p-calendar [(ngModel)]="departureDate" tabindex="0" name ="departureDate" required>{{departureDate|date}}</p-calendar> 
+    </div>
+    
+<div  class="form-group">
+   
+
+           <font color="red" size="4px">*</font> <label>Departure Airport</label>    
+              <input id="departureAirport" autocomplete="off" class="form-control" type="text" name="departureAirport" required [(ngModel)]=selectedAirport (keyup)=filterAirports($event)>
+              
+            
+            <div class="suggestions" *ngIf="filteredAirports.length > 0" >
+                <ul *ngFor="let item of filteredAirports" >
+                    <li >
+                        <a (click)="selectAirport(item)">{{item}}</a>
+                    </li>
+                </ul>
+            </div>
+</div>
+
+
+   
+<div class="form-group">
+              <font color="red" size="4px">*</font><label>Language</label>  
+              <input id="userLanguage" autocomplete="off" class="form-control" type="text" name="userLanguage" required [(ngModel)]=selectedLanguage (keyup)=filterLanguages($event)>
+              
+            
+            <div class="suggestions" *ngIf="filteredLanguages.length > 0">
+                <ul *ngFor="let item of filteredLanguages" >
+                    <li >
+                        <a (click)="selectLanguage(item)">{{item}}</a>
+                    </li>
+                </ul>
+            </div>
+</div>
+
+<div class="form-group">
+<font color="red" size="4px">*</font><label>Number of People Travelling</label>
+<select [(ngModel)]="selectedNumber" required name="selectedNumber">
+  <option *ngFor="let number of numbers" [value]="number">{{number}}</option>
+  
+</select>
+</div>
+
+<button type="submit" class="btn btn-primary" style="opacity:1.0" [disabled]="!createItineraryForm.valid">create Itinerary</button>
+</form>
+</div>
+

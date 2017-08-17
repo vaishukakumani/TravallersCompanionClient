@@ -1,0 +1,125 @@
+/* You can add global styles to this file, and also import other style files */
+.alert {
+    background: #f2edda;
+    padding: 7px;
+    font-size: .9em;
+    margin-bottom: 20px;
+    display: inline-block;
+    animation: 2s alertAnim forwards;
+}
+.container{
+	height:100%;
+	width:100%;
+	    background-color: #F1F1F1;
+}
+.navbar-container{
+	height:10%;
+}
+label{
+	color: #5A5A5A;
+}
+.routerOutlet-container{
+	height:90%;
+	
+}
+.createIti-container{
+	height: 50%;
+	width:50%;
+	margin-left:25%;
+	margin-top:5%;
+
+}
+.itiList-container{
+	margin-top: 3%;
+	height:97%;
+	width:50%;
+}
+.itidetails-container{
+	height:100%;
+	width:50%;
+}
+.itiModify-container{
+	height:100%;
+	width:50%;
+}
+.viewIti-container,.forum-container{
+	height:90%;
+	
+	width:100%;
+	display:flex;
+}
+.forumNavContainer{
+	margin-top:5%;
+	height:95%;
+	width:10%;
+}
+.forumDetailsContainer{
+	height:100%;
+	width:70%;
+}
+.disc-container,.viewDiscContainer{
+	margin-top: 5%;
+	margin-left: 5%;
+}
+
+  html,body
+    {
+        height: 100%;
+        width: 100%;
+    }
+.suggestions{
+    opacity: 1;
+	border:solid 1px #f1f1f1;
+	position:absolute;
+	width:600px;
+	height:40vh;
+	background: white;
+	overflow-y:scroll;
+	
+}
+
+.suggestions ul{
+	padding: 0px;
+	margin: 0px;
+	
+}
+
+
+.suggestions ul li{
+	list-style: none;
+	padding: 0px;
+	margin: 0px;
+}
+
+.suggestions ul li a{
+	padding:5px;
+	display: block;
+	text-decoration: none;
+	color:#7E7E7E;
+}
+
+.suggestions ul li a:hover{
+	background-color: #f1f1f1;
+}
+.itiTable{
+table-layout: fixed;
+    word-wrap: break-word;
+
+	}
+	.itiData{
+		width:10%;
+		color: #5A5A5A;
+	}
+.itiHeader{
+	width:10%;
+}
+.discHead{
+	background-color:#03A7FA;
+	color:#fff;
+	font-size: 14px;
+
+}
+.navPillsLinks{
+	background-color: #fff;
+}
+
