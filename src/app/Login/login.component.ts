@@ -44,17 +44,7 @@ export class LoginComponent implements OnInit {
     onSubmit(value:any){
         console.log(value);
         
-    // this.userService.checkUser(value.userName,value.password).subscribe(checkUserdata=>{if(checkUserdata.status=="UserFound"){
-    //                                                                                     this.globals.userName=checkUserdata.userName;
-    //                                                                                     this.globals.userId=checkUserdata.userId;                                                                                   
-                                                                                        
-    //                                                                                     this._router.navigate(['/UserHome',checkUserdata.userId]);} 
-    //                                                                                 else if(checkUserdata.status=="PasswordIncorrect"){
-    //                                                                                     this.displayError=true;
-    //                                                                                     this.status="Incorrect password";}
-    //                                                                                 else if(checkUserdata.status=="UserNotFound"){
-    //                                                                                     this.displayError=true;
-    //                                                                                     this.status="user not found";}});
+ 
    
         
     this.loading = true;
