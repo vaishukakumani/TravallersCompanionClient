@@ -85,13 +85,7 @@ export class LoginComponent implements OnInit {
   }
 
   private navigateAfterSuccess() {
-//     if (this.redirectUrl) {
-//         console.log("redirect url is "+ this.redirectUrl);
-//       this._router.navigateByUrl(this.redirectUrl);
-//     } else {
-//         console.log("redirect url is "+ this.redirectUrl);
-//       this._router.navigate(['/']);
-//     }
+
     this._router.navigateByUrl('/UserHome');
    }
                
