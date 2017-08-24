@@ -28,6 +28,7 @@ export class ViewItineraries implements OnInit{
  filteredAirports=[];
  filteredLanguages=[];
     createItineraryForm:FormGroup;
+    itinDisplay=true;
     
 constructor(private itin_service:ItineraryService,private _route:ActivatedRoute,private _router: Router,private fetchAirports:FetchAirportsService, 
      private fetchLanguages:FetchLanguagesService,myElement: ElementRef){
@@ -39,12 +40,18 @@ constructor(private itin_service:ItineraryService,private _route:ActivatedRoute,
      this.userId=localStorage.getItem('user_id');
      this.userName=localStorage.getItem('user_name');
      
+     
 }
 ngOnInit( ) {
     
-       this.itin_service.fetchItineraries(Number(this.userId)).subscribe((viewResponse)=>{this.itineraries=viewResponse});
-    
-       
+       this.itin_service.fetchItineraries(Number(this.userId)).subscribe((viewResponse)=>{this.itineraries=viewResponse;},error=>{alert(error+"An unexpected error occured.please try again");});
+//   console.log(this.itineraries);
+//    if(this.itineraries.length==0){
+//        console.log(this.itineraries);
+//     this.itinDisplay=false;
+//    } 
+//    else{  
+//     this.itinDisplay=true;
   this.fetchAirports.getProcessTemplates()
      .subscribe(response=>{
        this.temporary = response.json();
@@ -58,7 +65,7 @@ ngOnInit( ) {
        for(var i in this.temporary)
          this.allLanguages.push(this.temporary[i].English);
      });
-    
+  // }  
      
 }
    

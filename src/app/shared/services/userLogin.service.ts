@@ -26,6 +26,9 @@ export class UserLoginService {
     this.accessToken = null;
     this.isAdmin = false;
     localStorage.removeItem(TOKEN_NAME);
+    localStorage.removeItem("user_id");
+    localStorage.removeItem("user_name");
+    localStorage.removeItem("index");
   }
 
   isAdminUser(): boolean {

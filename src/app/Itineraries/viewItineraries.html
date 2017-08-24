@@ -2,7 +2,9 @@
     <div class="viewIti-container">
     <div class="itiList-container">
         <div class="iti-row ">
-            <div class="table-responsive">
+            <ng-template #noItin><p> There are no itineraries to show</p></ng-template>
+           
+            <div class="table-responsive" *ngIf="itineraries.length!=0;else noItin">
                 
             <table class="table table-striped itiTable" >
                 <thead>
@@ -43,6 +45,7 @@
                 </tbody>
             </table>
             </div>
+           
         </div>
     </div>
     <div *ngIf="displayDetails" class="itidetails-container">

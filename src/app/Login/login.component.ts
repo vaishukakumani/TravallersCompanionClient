@@ -44,9 +44,7 @@ export class LoginComponent implements OnInit {
     onSubmit(value:any){
         console.log(value);
         
- 
-   
-        
+         
     this.loading = true;
 
     this.authenticationService.login(value.userName, value.password)
@@ -58,9 +56,9 @@ export class LoginComponent implements OnInit {
               console.log(result);
             this.userService.login(result);
             this.userIdService.checkUser(value.userName,value.password).subscribe(checkUserdata=>{
-                                                                                         localStorage.setItem(UserName,checkUserdata.userName);
-                                                                                        localStorage.setItem(UserId,checkUserdata.userId); }); 
-            this.navigateAfterSuccess();
+                                                                                        localStorage.setItem(UserName,checkUserdata.userName);
+                                                                                         localStorage.setItem(UserId,checkUserdata.userId); }); 
+           this.navigateAfterSuccess();
           } else {
               this.displayError=true;
             this.status = 'Username or password is incorrect';
